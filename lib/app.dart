@@ -24,7 +24,15 @@ class MyApp extends StatelessWidget {
         title: 'Social media',
         theme: lightTheme,
         home: BlocConsumer<AuthCubit, AuthState>(
-          listener: (context, state) {},
+          listener: (context, state) {
+            if (state is AuthError) {
+              ScaffoldMessenger.of(context).showSnackBar(
+                SnackBar(
+                  content: Text(state.message),
+                ),
+              );
+            }
+          },
           builder: (context, state) {
             if (state is Unauthenticated) {
               return const AuthPage();

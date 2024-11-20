@@ -9,3 +9,9 @@ extension SizedboxHeight on int {
     return SizedBox(width: toDouble());
   }
 }
+
+extension SnackbarExtension on BuildContext {
+  void showSnackBar({required String text}) {
+    ScaffoldMessenger.of(this).showSnackBar(SnackBar(content: Text(text)));
+  }
+}
