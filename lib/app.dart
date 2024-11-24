@@ -6,7 +6,7 @@ import 'package:social_media_mitch/feature/auth/domain/repos/auth_repo.dart';
 import 'package:social_media_mitch/feature/auth/presentation/cubits/auth_cubit.dart';
 import 'package:social_media_mitch/feature/auth/presentation/cubits/auth_states.dart';
 import 'package:social_media_mitch/feature/auth/presentation/pages/auth_page.dart';
-import 'package:social_media_mitch/feature/post/presentation/home_page.dart';
+import 'package:social_media_mitch/feature/home/presentation/home_page.dart';
 import 'package:social_media_mitch/themes/light_mode.dart';
 
 class MyApp extends StatelessWidget {

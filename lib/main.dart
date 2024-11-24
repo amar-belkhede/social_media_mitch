@@ -4,7 +4,7 @@ import 'package:social_media_mitch/app.dart';
 import 'package:social_media_mitch/feature/auth/presentation/pages/auth_page.dart';
 import 'package:social_media_mitch/feature/auth/presentation/pages/login_page.dart';
 import 'package:social_media_mitch/feature/auth/presentation/pages/register_page.dart';
-import 'package:social_media_mitch/firebase_options.dart';
+import 'package:social_media_mitch/config/firebase_options.dart';
 import 'package:social_media_mitch/themes/light_mode.dart';
 
 void main() async {
