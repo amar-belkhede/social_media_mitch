@@ -6,8 +6,10 @@ import 'package:social_media_mitch/feature/auth/domain/entities/app_user.dart';
 import 'package:social_media_mitch/feature/auth/presentation/cubits/auth_cubit.dart';
 import 'package:social_media_mitch/feature/auth/presentation/pages/login_page.dart';
 import 'package:social_media_mitch/feature/auth/presentation/pages/register_page.dart';
+import 'package:social_media_mitch/feature/profile/presentation/components/bio_box.dart';
 import 'package:social_media_mitch/feature/profile/presentation/cubit/profile_cubit.dart';
 import 'package:social_media_mitch/feature/profile/presentation/cubit/profile_state.dart';
+import 'package:social_media_mitch/feature/profile/presentation/pages/edit_profile_page.dart';
 
 class ProfilePage extends StatefulWidget {
   final String uid;
@@ -39,10 +41,21 @@ class _ProfilePageState extends State<ProfilePage> {
             appBar: AppBar(
               title: Text(user.name),
               foregroundColor: Theme.of(context).colorScheme.primary,
+              actions: [
+                IconButton(
+                    onPressed: () => Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => EditProfilePage(
+                            user: user,
+                          ),
+                        )),
+                    icon: const Icon(Icons.settings))
+              ],
             ),
             body: Column(
               children: [
-                25.height(),
+                15.height(),
                 Center(
                   child: Text(
                     user.email,
@@ -51,6 +64,7 @@ class _ProfilePageState extends State<ProfilePage> {
                     ),
                   ),
                 ),
+                15.height(),
                 Container(
                   decoration: BoxDecoration(
                     color: Theme.of(context).colorScheme.secondary,
@@ -68,9 +82,33 @@ class _ProfilePageState extends State<ProfilePage> {
                   ),
                 ),
                 25.height(),
-                Row(
-                  children: [Text("Bio")],
-                )
+                Padding(
+                  padding: const EdgeInsets.only(left: 25),
+                  child: Row(
+                    children: [
+                      Text(
+                        "Bio",
+                        style: TextStyle(
+                            color: Theme.of(context).colorScheme.primary),
+                      )
+                    ],
+                  ),
+                ),
+                10.height(),
+                BioBox(text: user.bio),
+                Padding(
+                  padding: const EdgeInsets.only(left: 25, top: 25),
+                  child: Row(
+                    children: [
+                      Text(
+                        "Posts",
+                        style: TextStyle(
+                            color: Theme.of(context).colorScheme.primary),
+                      )
+                    ],
+                  ),
+                ),
+                10.height(),
               ],
             ),
           );
